@@ -1,15 +1,15 @@
 from django.db import models
 from django.urls import reverse
 
-
 class Category(models.Model):
-    name = models.CharField(max_length=256)
-    slug = models.SlugField(max_length=256, unique=True)
+    name = models.CharField(max_length=200)
+    slug = models.SlugField(max_length=200,
+                            unique=True)
 
     class Meta:
         ordering = ['name']
         indexes = [
-            models.Index(fields=['name'])
+            models.Index(fields=['name']),
         ]
         verbose_name = 'category'
         verbose_name_plural = 'categories'
@@ -26,8 +26,8 @@ class Product(models.Model):
     category = models.ForeignKey(Category,
                                  related_name='products',
                                  on_delete=models.CASCADE)
-    name = models.CharField(max_length=256)
-    slug = models.SlugField(max_length=256)
+    name = models.CharField(max_length=200)
+    slug = models.SlugField(max_length=200)
     image = models.ImageField(upload_to='products/%Y/%m/%d',
                               blank=True)
     description = models.TextField(blank=True)
@@ -42,7 +42,7 @@ class Product(models.Model):
         indexes = [
             models.Index(fields=['id', 'slug']),
             models.Index(fields=['name']),
-            models.Index(fields=['-created'])
+            models.Index(fields=['-created']),
         ]
 
     def __str__(self):
