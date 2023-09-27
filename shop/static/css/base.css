@@ -78,7 +78,7 @@ table.cart img {
 }
 
 tbody td.num {
-    text-align: right;
+    text-align: left;
 }
 
 td input[type="submit"] {
