@@ -50,8 +50,8 @@ table {
 
 table th, table td {
     text-align: left;
-    font-size: 14px;
-    padding: 10px;
+    font-size: 17px;
+    padding: 22px;
     margin: 0;
 }
 
@@ -74,7 +74,7 @@ table.cart {
 }
 
 table.cart img {
-    width: 180px;
+    width: 200px;
 }
 
 tbody td.num {
@@ -144,7 +144,7 @@ ul.errorlist {
 }
 
 #content {
-    padding: 0 100px;
+    padding: 0 1px;
     overflow: hidden;
 }
 
