@@ -43,4 +43,3 @@ def admin_order_detail(request, order_id):
         settings.STATIC_ROOT / 'css.pdf.css'
     )])
     return response
-
