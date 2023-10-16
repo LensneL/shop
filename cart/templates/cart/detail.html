@@ -65,6 +65,13 @@ Your shopping cart
         </td>
     </tr>
     {% endif %}
+    <tr class="total">
+        <td>Total</td>
+        <td colspan="4"></td>
+        <td class="num">
+            ${{ cart.get_total_price_after_discount|floatformat:2 }}
+        </td>
+    </tr>
     </tbody>
 </table>
 <p class="text-right">
