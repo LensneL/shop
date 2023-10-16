@@ -1,8 +1,10 @@
 {% extends "shop/base.html" %}
 {% load static %}
+
 {% block title %}
 Your shopping cart
 {% endblock %}
+
 {% block content %}
 <h1>Your shopping cart</h1>
 <table class="cart">
@@ -22,23 +24,23 @@ Your shopping cart
     <tr>
         <td>
             <a href="{{ product.get_absolute_url }}">
-                <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static " img/no_image.png" %}{%
-                endif %}">
+                <img src="{% if product.image %}{{ product.image.url }}
+                {% else %}{% static " img/no_image.png" %}{% endif %}">
             </a>
         </td>
         <td>{{ product.name }}</td>
         <td>
-            <form action="{% url 'cart:cart_add' product.id %}" method="post">
-                {{ item.update_quantity_form.quantity }}
-                {{ item.update_quantity_form.override }}
-                <input type="submit" value="Update">
-                {% csrf_token %}
+            <form action="{% url " cart:cart_add
+            " product.id %}" method="post">
+            {{ item.update_quantity_form.quantity }}
+            {{ item.update_quantity_form.override }}
+            <input type="submit" value="Update">
+            {% csrf_token %}
             </form>
         </td>
         <td>
             <form action="{% url " cart:cart_remove
-            " product.id %}"
-            method="post">
+            " product.id %}" method="post">
             <input type="submit" value="Remove">
             {% csrf_token %}
             </form>
@@ -61,7 +63,7 @@ Your shopping cart
         </td>
         <td colspan="4"></td>
         <td class="num neg">
-            – ${{ cart.get_discount|floatformat:2 }}
+            - ${{ cart.get_discount|floatformat:2 }}
         </td>
     </tr>
     {% endif %}
@@ -74,6 +76,14 @@ Your shopping cart
     </tr>
     </tbody>
 </table>
+
+
+<p>Apply a coupon:</p>
+<form action="{% url " coupons:apply" %}" method="post">
+{{ coupon_apply_form }}
+<input type="submit" value="Apply">
+{% csrf_token %}
+</form>
 <p class="text-right">
     <a href="{% url " shop:product_list" %}" class="button
     light">Continue shopping</a>
