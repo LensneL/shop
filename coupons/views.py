@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
-from .models import Coupon
 from django.utils import timezone
 from django.views.decorators.http import require_POST
+from .models import Coupon
 from .forms import CouponApplyForm
 
 
@@ -13,10 +13,10 @@ def coupon_apply(request):
         code = form.cleaned_data['code']
         try:
             coupon = Coupon.objects.get(code__iexact=code,
-                                        valid_form__lte=now,
-                                        valid_form_gte=now,
+                                        valid_from__lte=now,
+                                        valid_to__gte=now,
                                         active=True)
-            request.session['coupond_id'] = coupon.id
+            request.session['coupon_id'] = coupon.id
         except Coupon.DoesNotExist:
             request.session['coupon_id'] = None
     return redirect('cart:cart_detail')
