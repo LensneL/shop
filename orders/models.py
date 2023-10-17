@@ -34,7 +34,8 @@ class Order(models.Model):
         return f'Order {self.id}'
 
     def get_total_cost(self):
-        return sum(item.get_cost() for item in self.items.all())
+        total_cost = self.get_total_cost_before_discount()
+        return total_cost - self.get_discount()
 
     def get_stripe_url(self):
         if not self.stripe_id:
