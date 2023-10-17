@@ -35,3 +35,7 @@ class Recommender:
         suggested_products = list(Product.objects.filter(id__in=suggested_product_ids))
         suggested_products.sort(key=lambda x: suggested_product_ids.index(x.id))
         return suggested_products
+
+    def clear_purchases(self):
+        for id in Product.objects.filter('id', flat=True):
+            r.delete(self.get_product_key(id))
