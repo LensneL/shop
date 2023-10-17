@@ -45,6 +45,15 @@ class Order(models.Model):
             path = '/'
         return f'https://dashboard.stripe.com{path}payments/{self.stripe_id}'
 
+    def get_total_cost_before_discount(self):
+        return sum(item.get_cost() for item in self.items.all())
+
+    def get_discount(self):
+        total_cost = self.get_total_cost_before_discount()
+        if self.discount:
+            return total_cost * (self.discount / Decimal(100))
+        return Decimal(0)
+
 
 class OrderItem(models.Model):
     order = models.ForeignKey(Order,
