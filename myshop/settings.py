@@ -86,6 +86,10 @@ DATABASES = {
     }
 }
 
+REDIS_HOST = 'localhost'
+REDIS_PORT = 6379
+REDIS_DB = 1
+
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
@@ -139,4 +143,4 @@ STRIPE_API_VERSION = '2023-08-16'
 
 STRIPE_WEBHOOK_SECRET = 'whsec_69874293479ff4a9a97eaff9afae3381778e83dc96e4bd577c4b63f0969b64d6'
 
-STATIC_ROOT = BASE_DIR / 'static'
+STATIC_ROOT = BASE_DIR / 'stati0c'

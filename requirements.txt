@@ -6,3 +6,4 @@ flower==1.2.0
 celery==5.2.7
 stripe==4.02
 weasyprint==60.1
+redis==5.0.1
