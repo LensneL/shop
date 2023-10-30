@@ -22,11 +22,11 @@ msgstr ""
 
 #: myshop/settings.py:119
 msgid "English"
-msgstr ""
+msgstr "Ingles"
 
 #: myshop/settings.py:120
 msgid "Russian"
-msgstr ""
+msgstr "Русский"
 
 #: venv/lib/python3.11/site-packages/click/_termui_impl.py:518
 #, python-brace-format
